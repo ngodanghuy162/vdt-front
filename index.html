@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thông tin học viên</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="centered">
+      <h1>Danh sách học viên tham gia VDT 2024</h1>
+      <h2>--Lĩnh vực Cloud--</h2>
+    </header>
+    <main>
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Họ và tên</th>
+            <th>Giới tính</th>
+            <th>Trường</th>
+            <th>Chỉnh sửa</th>
+            <th>Xem chi tiết</th>
+            <th>Xóa</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody">
+        </tbody>
+      </table>
+
+      <button id="addStudentButton" onclick="showForm()">Thêm sinh viên</button>
+    </main>
+  </div>
+
+  <div id="overlay1" class="overlay">
+    <div id="addModal" class="addmodal">
+        <div class="modal-content">
+        <span class="close" onclick="closeForm()">&times;</span>
+        <form id="userForm" onsubmit="addUser(event)">
+            <input type="text" id="name1" placeholder="Tên" required>
+            <input type="text" id="birth1" placeholder="Năm Sinh" required>
+            <input type="text" id="phone1" placeholder="SĐT" required>
+            <input type="text" id="email1" placeholder="Email" required>
+            <input type="text" id="gender1" placeholder="Giới tính" required>
+            <input type="text" id="school1" placeholder="Trường" required>
+            <input type="text" id="country1" placeholder="Quốc gia" required>
+            <button type="submit">Thêm sinh viên</button>
+        </form>
+        </div>
+    </div>
+  </div>
+
+  <div id="overlay2" class="overlay">
+    <div id="editModal" class="editmodal">
+        <div class="modal-content">
+        <span class="close" onclick="closeEdit()">&times;</span>
+        <form id="editForm" onsubmit="updateUser(event)">
+            <input type="text" id="name" placeholder="Tên" required>
+            <input type="text" id="birth" placeholder="Năm Sinh" required>
+            <input type="text" id="phone" placeholder="SĐT" required>
+            <input type="text" id="email" placeholder="Email" required>
+            <input type="text" id="gender" placeholder="Giới tính" required>
+            <input type="text" id="school" placeholder="Trường" required>
+            <input type="text" id="country" placeholder="Quốc gia" required>
+            <button type="submit">Lưu</button>
+        </form>
+        </div>
+    </div>
+  </div>
+
+  <div id="overlay3" class="overlay">
+    <div id="detailModal" class="detailmodal">
+      <div class="modal-content">
+        <span class="close" onclick="closeDetails()">&times;</span>
+        <form id="detailsForm">
+          <input type="text" id="name2" placeholder="Tên" required>
+          <input type="text" id="birth2" placeholder="Năm Sinh" required>
+          <input type="text" id="phone2" placeholder="SĐT" required>
+          <input type="text" id="email2" placeholder="Email" required>
+          <input type="text" id="gender2" placeholder="Giới tính" required>
+          <input type="text" id="school2" placeholder="Trường" required>
+          <input type="text" id="country2" placeholder="Quốc gia" required>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
