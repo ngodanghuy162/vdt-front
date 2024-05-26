@@ -1,4 +1,4 @@
-
+import url from './config.js';
 let users = [];
 let chosenUserId = 0;
 let editMode = false;
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function fetchUsers() {
-    fetch('http://localhost:8080/vdt/all')
+    fetch(url + 'all')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Response was not ok ' + response.statusText);
@@ -83,7 +83,7 @@ console.log(user);
 
 function deleteUser(userId) {
     if (confirm("Bạn có chắc chắn muốn xóa người dùng có ID: " + userId + " không?")) {
-        fetch('http://localhost:8080/vdt/delete/' + userId, {
+        fetch(url + 'delete/' + userId, {
             method: 'DELETE',
         })
         .then(response => {
@@ -172,7 +172,7 @@ function updateUser(event) {
 
     const userJson = JSON.stringify(user);
 
-    fetch('http://localhost:8080/vdt/update/' + chosenUserId, {
+    fetch(url + 'update/' + chosenUserId, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -223,7 +223,7 @@ function addUser(event) {
         "school": school,
         "country": country
     }
-    fetch('http://localhost:8080/vdt/create', {
+    fetch(url + 'create', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
