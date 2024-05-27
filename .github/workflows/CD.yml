@@ -21,5 +21,4 @@ jobs:
   
         - name: Build and Push Docker images
           run: |
-              docker build -t ${{ secrets.DOCKER_USERNAME }}/midterm:front_image . && docker push ${{ secrets.DOCKER_USERNAME }}/midterm:frontend_image
-          
+              docker buildx build --platform linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/midterm:frontend_image . && docker push ${{ secrets.DOCKER_USERNAME }}/midterm:frontend_image
