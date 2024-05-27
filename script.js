@@ -1,4 +1,4 @@
-import url from './config.js';
+const url =  'http://192.168.1.105:8080/vdt/';
 let users = [];
 let chosenUserId = 0;
 let editMode = false;
