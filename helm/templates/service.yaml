@@ -12,3 +12,6 @@ spec:
       nodePort: {{ .Values.service.nodePort | default "null" }}
   selector:
     app: {{ include "Frontend.name" . }}
+
+    # Unable to create application: application spec for myapp is invalid: InvalidSpecError: Unable to generate manifests in helm: rpc error: code = Unknown desc = Manifest generation error (cached): `helm template . --name-template myapp --namespace myapp --kube-version 1.29 <api versions removed> --include-crds` failed exit status 1: Error: template: Frontend/templates/service.yaml:4:11: executing "Frontend/templates/service.yaml" at <include "Frontend.fullname" .>: error calling include: template: no template "Frontend.fullname" associated with template "gotpl" Use --debug flag to render out invalid YAML
+
