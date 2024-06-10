@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: ngodanghuy162/midterm
   pullPolicy: IfNotPresent
-  tag: {{ .Chart.version }}
+  tag: 0.3
 
 service:
   type: NodePort
