@@ -1,0 +1,27 @@
+replicaCount: 1
+
+image:
+  repository: ngodanghuy162/midterm
+  pullPolicy: IfNotPresent
+  tag: {{ .Chart.version }}
+
+service:
+  type: NodePort
+  port: 5500
+  nodePort: 31001
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: []
