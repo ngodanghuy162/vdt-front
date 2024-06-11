@@ -32,8 +32,9 @@ jobs:
           run: |
               # TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/tags\///') 
               git clone https://ngodanghuy162:${GITHUB_TOKEN}}@github.com/ngodanghuy162/config-front.git
+              pwd
+              cd config-front && sed -i "s/tag: \*/tag: 0.5/" values.yaml
               # sed -i "s/tag: .*/tag: ${TAG_NAME}/" values.yaml
-              sed -i "s/tag: \*/tag: 0.5/" values.yaml
               git config user.name 'ngodanghuy162'
               git config user.email 'ngohuy658@gmail.com'
               git add values.yaml
