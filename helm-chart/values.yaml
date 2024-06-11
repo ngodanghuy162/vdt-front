@@ -77,16 +77,16 @@ livenessProbe:
     port: http
     tcpSocket:
       port: 5000
-    initialDelaySeconds: 300
-    eriodSeconds: 30
+  initialDelaySeconds: 300
+  periodSeconds: 30
 readinessProbe:
   httpGet:
     path: /
     port: http
     tcpSocket:
       port: 5000
-    initialDelaySeconds: 300
-    eriodSeconds: 30
+  initialDelaySeconds: 300
+  periodSeconds: 30
 
 autoscaling:
   enabled: false
