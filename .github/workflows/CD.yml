@@ -28,7 +28,7 @@ jobs:
 
         - name: Change config repo
           env:
-              GITHUB_TOKEN: ${{ secrets.TOKEN }}
+              GITHUB_TOKEN: ${{ secrets.TOKEN_GENERAL }}
           run: |
               # TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/tags\///') 
               git clone https://github.com/ngodanghuy162/config-front.git
