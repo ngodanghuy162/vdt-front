@@ -8,7 +8,6 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      nodePort:
       targetPort: 5500
       nodePort: {{ .Values.service.nodePort }}
   selector:
