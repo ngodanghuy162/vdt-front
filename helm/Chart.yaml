@@ -1,5 +1,0 @@
-apiVersion: v2
-name: Frontend
-description: A Helm chart for deploying a Frontend
-version: 0.3
-appVersion: 0.3

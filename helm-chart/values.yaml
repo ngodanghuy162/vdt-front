@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: ngodanghuy162/midterm
   pullPolicy: IfNotPresent
-  tag: 0.3
+  tag: 0.4
 
 imagePullSecrets: []
 nameOverride: ""
