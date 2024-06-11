@@ -38,4 +38,5 @@ jobs:
               git config user.email 'ngohuy658@gmail.com'
               git add values.yaml
               git commit -m 'Update image tag to ${TAG_NAME}' || true
+              git config --unset-all http.https://github.com/.extraheader
               git push origin main
