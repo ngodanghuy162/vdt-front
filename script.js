@@ -1,5 +1,4 @@
 const url =  'http://192.168.1.88:31111/vdt/';
-
 let users = [];
 let chosenUserId = 0;
 let editMode = false;
