@@ -8,7 +8,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: 5500
+      targetPort: {{ .Values.service.targetPort }}
       nodePort: {{ .Values.service.nodePort }}
   selector:
     {{- include "helm-chart.selectorLabels" . | nindent 4 }}
