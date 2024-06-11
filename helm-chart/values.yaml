@@ -41,6 +41,7 @@ securityContext: {}
 service:
   type: NodePort
   port: 5500
+  targetPort:5500
   nodePort: 31001
 
 ingress:
