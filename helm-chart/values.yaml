@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: ngodanghuy162/myrepo
   pullPolicy: IfNotPresent
-  tag: 0.5
+  tag: 0.8
 
 imagePullSecrets: []
 nameOverride: ""
@@ -42,7 +42,7 @@ service:
   type: NodePort
   port: 5500
   targetPort: 5500
-  nodePort: 31110
+  nodePort: 31777
 
 ingress:
   enabled: false
