@@ -1,4 +1,4 @@
-const url =  'http://192.168.1.88:8080/vdt/';
+const url =  'http://192.168.1.88:31111/vdt/';
 
 let users = [];
 let chosenUserId = 0;
