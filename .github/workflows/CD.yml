@@ -4,10 +4,6 @@ on:
     create:
         tags:
           - '*'
-    push:
-        branches:
-          - main
-  
 jobs:
     release:
         runs-on: ubuntu-latest
@@ -21,21 +17,20 @@ jobs:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PW }}
   
-        # - name: Build and Push Docker images
-        #   run: |
-        #       TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/tags\///') 
-        #       docker buildx build --platform linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/myrepo:${TAG_NAME} . && docker push ${{ secrets.DOCKER_USERNAME }}/myrepo:${TAG_NAME}
+        - name: Build and Push Docker images
+          run: |
+              TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/tags\///') 
+              docker buildx build --platform linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/myrepo:${TAG_NAME} . && docker push ${{ secrets.DOCKER_USERNAME }}/myrepo:${TAG_NAME}
 
         - name: Change config repo
           env:
               GITHUB_TOKEN: ${{ secrets.TOKEN_GENERAL }}
           run: |
-              # TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/tags\///') 
+              TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/tags\///') 
               git config --global user.name "ngodanghuy162"
               git config --global user.email 'ngohuy658@gmail.com'
               git clone https://ngodanghuy162:${GITHUB_TOKEN}@github.com/ngodanghuy162/config-front.git
-              cd config-front && ls && echo "#test ok vàfo cuối file" >> values.yaml
-              # sed -i "s/tag: .*/tag: ${TAG_NAME}/" values.yaml
+              cd config-front && sed -i "s/tag: .*/tag: ${TAG_NAME}/" values.yaml
               git add values.yaml
               git commit -m 'Update image tag ' || true
               git push origin main
