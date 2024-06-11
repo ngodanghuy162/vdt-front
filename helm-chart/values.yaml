@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: ngodanghuy162/midterm
+  repository: ngodanghuy162/myrepo
   pullPolicy: IfNotPresent
   tag: 0.4
 
