@@ -31,11 +31,11 @@ jobs:
               GITHUB_TOKEN: ${{ secrets.TOKEN }}
           run: |
               # TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/tags\///') 
-              git clone https://github.com/ngodanghuy162/config-front.git
+              git clone https://github.com/ngodanghuy162/vdt-front.git
               cd config-front && pwd && echo "#test ok vàfo cuối file" >> values.yaml
               # sed -i "s/tag: .*/tag: ${TAG_NAME}/" values.yaml
-              git config user.name 'ngodanghuy162'
-              git config user.email 'ngohuy658@gmail.com'
+              git config --global user.name 'ngodanghuy162'
+              git config --global user.email 'ngohuy658@gmail.com'
               git add values.yaml
               git commit -m 'Update image tag ' || true
               git push origin main
