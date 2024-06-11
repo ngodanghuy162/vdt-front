@@ -3,7 +3,10 @@ name: Push Docker Image to Docker Hub
 on:
     create:
         tags:
-          - '*' 
+          - '*'
+    push:
+        branches:
+          - main
   
 jobs:
     release:
@@ -28,7 +31,7 @@ jobs:
               GITHUB_TOKEN: ${{ secrets.TOKEN }}
           run: |
               TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/tags\///') 
-              git clone https://ngodanghuy162:${ GITHUB_TOKEN }}@github.com/ngodanghuy162/config-front.git
+              git clone https://ngodanghuy162:${GITHUB_TOKEN}}@github.com/ngodanghuy162/config-front.git
               sed -i "s/tag: .*/tag: ${TAG_NAME}/" values.yaml
               git config user.name 'ngodanghuy162'
               git config user.email 'ngohuy658@gmail.com'
